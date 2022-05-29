@@ -1,0 +1,19 @@
+img {
+  max-width: 100%;
+  border-radius: $border-radius-small;
+}
+
+.img-raised {
+  box-shadow: $box-shadow-raised;
+}
+
+.content-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-banner {
+  width: 90%;
+  max-width: 100%;
+}
