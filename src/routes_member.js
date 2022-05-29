@@ -5,6 +5,7 @@ import list from "views/list_member.js";
 import random from "views/random_member.js";
 import insert from "views/insertmenu.jsx";
 import home from "views/home_member.js";
+import publication from "views/publication.js";
 import manage from "views/publication_member";
 import stat from "views/stat_member.js";
 import Maps from "views/Map_member.js";
@@ -27,8 +28,15 @@ var routes = [
   //   layout: "/member",
   // },
   {
-    path: "/manage",
+    path: "/publications",
     name: "publications",
+    icon: "nc-icon nc-caps-small",
+    component: publication,
+    layout: "/member",
+  },
+  {
+    path: "/manage",
+    name: "my publications",
     icon: "nc-icon nc-bullet-list-67",
     component: manage,
     layout: "/member",
