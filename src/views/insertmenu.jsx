@@ -308,7 +308,8 @@ function Insert() {
                         </Input>
                       </Col>
                       <Col md='6'>
-                        <p>Impact Factor <a href="https://www.scimagojr.com/index.php">Check it</a></p>
+                        <p>Impact Factor <a className="checkit" target="_blank"
+                          href="https://www.scimagojr.com/index.php">Check it</a></p>
                         <Input onChange={(e) => setfactor(e.target.value)}></Input>
                       </Col>
                     </Row>

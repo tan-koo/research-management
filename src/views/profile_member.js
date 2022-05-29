@@ -230,18 +230,18 @@ function Dashboard() {
                 </div> */}
               <CardBody>
                 <div className="author">
-                  <div>
+                  <div className="avatar border-gray">
                     {/* <img alt="..." className="avatar border-gray"
                       src={User[id].Pic} /> */}
                     <img src={User[id].Pic} />
-                    <h5 className="title mt-3">{User[id].FirstName} {User[id].LastName}</h5>
                   </div>
-                  <p className="description">{User[id].Email}</p>
                 </div>
                 <Col md="12" className='mt-1'>
+                  <h5 className="profile-name">{User[id].FirstName} {User[id].LastName}</h5>
+                  <p className="description">{User[id].Email}</p>
                   <h6>Education</h6>
                   {Object.keys(User[id].Education).map((id2) => {
-                    return <p>{User[id].Education[id2]}</p>;
+                    return <p className="description profile-name">{User[id].Education[id2]}</p>;
                   })}
                   {/* <p>B.Sc.(Math. Education), Prince of Songkla University Thailand</p>
                   <p>M.Sc.(Applied. Mathematics),King Mongkut's University of Technology Thonburi ,Thailand</p>

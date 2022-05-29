@@ -452,6 +452,11 @@ textarea.form-control {
   color: #212529 !important;
 }
 
+.checkit:hover {
+  color: red !important;
+  text-decoration: none;
+}
+
 .card-welcome {
   border-radius: 0 0 0.5rem 0.5rem !important;
 }
