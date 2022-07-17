@@ -43,7 +43,145 @@ function Dashboard() {
   const [qBoolean, setQBoolean] = useState([])
   const [label, setLabel] = useState([])
   const [datasets, setDatasets] = useState([])
-  const [defaultChrat, setDefaultChart] = useState({})
+  const [chart, setChart] = useState({
+    type: "bar",
+    data: {
+      labels: [2019, 2020, 2021, 2022],
+      datasets: [
+        {
+          label: "Q1",
+          stack: '1',
+          order: 1,
+          backgroundColor: "rgb(244, 241, 222)",
+          borderColor: "rgb(255, 99, 132)",
+          data: [1, 2, 1, 3],
+        },
+        {
+          label: "Q2",
+          stack: '2',
+          order: 2,
+          backgroundColor: "rgb(224, 122, 95)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [2, 1, 3, 1],
+        },
+        {
+          label: "Q3",
+          stack: '3',
+          order: 2,
+          backgroundColor: "rgb(61, 64, 91)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [2, 1, 2, 1],
+        },
+        {
+          label: "Q4",
+          stack: '4',
+          order: 2,
+          backgroundColor: "rgb(129, 178, 154)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [1, 3, 3, 2],
+        },
+        {
+          label: "others",
+          stack: '5',
+          order: 2,
+          backgroundColor: "rgb(242, 204, 143)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [1, 3, 3, 2],
+        }
+      ]
+    },
+    options: {
+      datasets: {
+        bar: {
+          barPercentage: 0.7,
+          categoryPercentage: 0.8,
+        }
+      },
+      scales: {
+        xAxes: [{ stacked: false }],
+        yAxes: [{
+          stacked: true,
+          id: "y",
+          display: 'auto',
+          ticks: {
+            min: 0,
+            stepSize: 1,
+            max: 5
+          },
+        }]
+      }
+    }
+  })
+  const [defaultChrat, setDefaultChart] = useState({
+    type: "bar",
+    data: {
+      labels: [2019, 2020, 2021, 2022],
+      datasets: [
+        {
+          label: "Q1",
+          stack: '1',
+          order: 1,
+          backgroundColor: "rgb(244, 241, 222)",
+          borderColor: "rgb(255, 99, 132)",
+          data: [1, 2, 1, 3],
+        },
+        {
+          label: "Q2",
+          stack: '2',
+          order: 2,
+          backgroundColor: "rgb(224, 122, 95)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [2, 1, 3, 1],
+        },
+        {
+          label: "Q3",
+          stack: '3',
+          order: 2,
+          backgroundColor: "rgb(61, 64, 91)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [2, 1, 2, 1],
+        },
+        {
+          label: "Q4",
+          stack: '4',
+          order: 2,
+          backgroundColor: "rgb(129, 178, 154)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [1, 3, 3, 2],
+        },
+        {
+          label: "others",
+          stack: '5',
+          order: 2,
+          backgroundColor: "rgb(242, 204, 143)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [1, 3, 3, 2],
+        }
+      ]
+    },
+    options: {
+      datasets: {
+        bar: {
+          barPercentage: 0.7,
+          categoryPercentage: 0.8,
+        }
+      },
+      scales: {
+        xAxes: [{ stacked: false }],
+        yAxes: [{
+          stacked: true,
+          id: "y",
+          display: 'auto',
+          ticks: {
+            min: 0,
+            stepSize: 1,
+            max: 5
+          },
+        }]
+      }
+    }
+
+  })
 
   const [dashboardResearchChart, setDashboardResearchChart] = useState({
     type: "bar",
@@ -216,7 +354,7 @@ function Dashboard() {
       let q3 = []
       let q4 = []
       let others = []
-      let dashboard = dashboardResearchChart
+      let dashboard = chart
 
       ss.forEach(document => {
         // manipulate ตัวแปร local
@@ -256,11 +394,57 @@ function Dashboard() {
         }
       }
 
+      console.log('a ')
+      console.log(dashboard)
+
+      dashboard.data.datasets = [
+        {
+          label: "Q1",
+          stack: '1',
+          order: 1,
+          backgroundColor: "rgb(244, 241, 222)",
+          borderColor: "rgb(255, 99, 132)",
+          data: [1, 2, 1, 3],
+        },
+        {
+          label: "Q2",
+          stack: '2',
+          order: 2,
+          backgroundColor: "rgb(224, 122, 95)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [2, 1, 3, 1],
+        },
+        {
+          label: "Q3",
+          stack: '3',
+          order: 2,
+          backgroundColor: "rgb(61, 64, 91)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [2, 1, 2, 1],
+        },
+        {
+          label: "Q4",
+          stack: '4',
+          order: 2,
+          backgroundColor: "rgb(129, 178, 154)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [1, 3, 3, 2],
+        },
+        {
+          label: "others",
+          stack: '5',
+          order: 2,
+          backgroundColor: "rgb(242, 204, 143)",
+          borderColor: "rgb(75, 192, 192)",
+          data: [1, 3, 3, 2],
+        }
+      ]
       dashboard.data.datasets[0].data = q1
       dashboard.data.datasets[1].data = q2
       dashboard.data.datasets[2].data = q3
       dashboard.data.datasets[3].data = q4
       dashboard.data.datasets[4].data = others
+
 
       let defaultLabel = []
       let defaultDatasets = dashboard.data.datasets
@@ -545,11 +729,12 @@ function Dashboard() {
   const goToPublication = () => { window.location.href = "/general/publications"; }
 
   const yearCheck = (e, id) => {
-    let dashboard = dashboardResearchChart
+    let dashboard = defaultChrat
     let year = yearBoolean
     let count = c
     let test = []
     let newLabel = []
+    let qBool = qBoolean
 
     count++
     setC(count)
@@ -567,36 +752,77 @@ function Dashboard() {
       let test1 = []
       for (let j = 0; j < dashboard.data.datasets[i].data.length; j++) {
         if (test[j] == true) { test1.push(dashboard.data.datasets[i].data[j]) }
-
       }
       dashboard.data.datasets[i].data = test1
     }
 
     dashboard.data.labels = newLabel
 
+    let dataset = []
+
+
+    if (qBool[0] == true) { dataset.push(dashboard.data.datasets[0]) }
+    if (qBool[1] == true) { dataset.push(dashboard.data.datasets[1]) }
+    if (qBool[2] == true) { dataset.push(dashboard.data.datasets[2]) }
+    if (qBool[3] == true) { dataset.push(dashboard.data.datasets[3]) }
+    if (qBool[4] == true) { dataset.push(dashboard.data.datasets[4]) }
+
+    dashboard.data.datasets = dataset
+
     setDashboardResearchChart(dashboard)
+    setDatasets(dashboard.data.datasets)
     setYearBoolean(test)
+    // console.log(dashboard.data.labels)
   }
 
   const quartileCheck = (e, id) => {
-    let dashboard = dashboardResearchChart
+    let dashboard = defaultChrat
     let qBool = qBoolean
     let newQBool = []
+    let count = c
     let newDatasets = []
+
+    let test = yearBoolean
+
+    let newLabel = []
+
+    count++
+    setC(count)
+
+    console.log('qua')
 
     for (let i = 0; i < qBool.length; i++) {
       if (i != id) { newQBool.push(qBool[i]) }
       if (i == id) { newQBool.push(e) }
     }
 
-    for (let i = 0; i < newQBool.length; i++) {
-      if (newQBool[i] == true) { newDatasets.push(datasets[i]) }
+    for (let i = 0; i < test.length; i++) {
+      if (test[i] == true) { newLabel.push(label[i]) }
     }
 
-    dashboard.data.datasets = newDatasets
+    for (let i = 0; i < dashboard.data.datasets.length; i++) {
+      let test1 = []
+      for (let j = 0; j < dashboard.data.datasets[i].data.length; j++) {
+        if (test[j] == true) { test1.push(dashboard.data.datasets[i].data[j]) }
+      }
+      dashboard.data.datasets[i].data = test1
+    }
+
+    dashboard.data.labels = newLabel
+
+    let dataset = []
+
+    if (newQBool[0] == true) { dataset.push(dashboard.data.datasets[0]) }
+    if (newQBool[1] == true) { dataset.push(dashboard.data.datasets[1]) }
+    if (newQBool[2] == true) { dataset.push(dashboard.data.datasets[2]) }
+    if (newQBool[3] == true) { dataset.push(dashboard.data.datasets[3]) }
+    if (newQBool[4] == true) { dataset.push(dashboard.data.datasets[4]) }
+
+    dashboard.data.datasets = dataset
 
     setQBoolean(newQBool)
     setDashboardResearchChart(dashboard)
+    console.log(dashboard)
   }
 
   return (
