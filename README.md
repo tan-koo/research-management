@@ -1,4 +1,4 @@
-# BOOK REVIEW
+# KMUTT Research Management
 
 ## Build setup
 ```bash
@@ -9,17 +9,21 @@ $ npm install
 $ npm start
 ```
 
-# Home page
-![image](/public/images/screenshot11.jpg)
+# Home Page
+![image](/src/assets/img/screenshot1.jpg)
 
-# All BOOKS
-![image](/public/images/screenshot14.jpg)
+# Publications
+![image](/src/assets/img/screenshot2.jpg)
+![image](/src/assets/img/screenshot3.jpg)
 
-# BOOK DETAILS
-![image](/public/images/screenshot17.jpg)
+# People
+![image](/src/assets/img/screenshot4.jpg)
+![image](/src/assets/img/screenshot5.jpg)
 
-# ALL COMMENTS
-![image](/public/images/screenshot18.jpg)
+# Chart
+![image](/src/assets/img/screenshot6.jpg)
+![image](/src/assets/img/screenshot7.jpg)
 
-# PROFILE
-![image](/public/images/screenshot20.jpg)
+# Register & Login
+![image](/src/assets/img/screenshot8.jpg)
+![image](/src/assets/img/screenshot9.jpg)
